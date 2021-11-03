@@ -25,10 +25,10 @@ RUN mkdir -p /opt/uwsgi
 ADD uwsgi.ini /opt/uwsgi/
 ADD start_server.sh /opt/uwsgi/
 
-# !! windows 環境下sh會有格式問題，需要調整檔案格式:
+# !! 不同系統的換行符號不同，需要調整檔案格式:
 # 取得檔案執行權限
 RUN chmod +x /opt/uwsgi/start_server.sh
-# 刪除換行符號
+# 刪除回車符號
 RUN sed -i 's/\r//' /opt/uwsgi/start_server.sh
 
 # Create a user to run the service
